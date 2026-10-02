@@ -1,23 +1,29 @@
 # pwease
 
-Simple utility for user and group substitution.
+Command line utility for <insert thing name> substitution.
 
-## Why
+## Rationale
 
-Because neither `doas` nor `sudo` can subtitute supplementary groups (maybe
-`sudo` could but it's too bloated for me anyways). And also `pwease` has more
-reasonable defaults (envrionment inheritance, `permit nopass :wheel`).
+There is a huge ton of different utilities for different kinds of substitution,
+and sometimes you even need to combine them. What if you want to just substitute
+groups for a new process (kepping the same user)? Or *properly* (with working
+/dev, /sys and /proc) chroot into somewhere? What if you also wanna login in
+chrooted environment? And so on. These seemingly unrelated problems in practice
+could arise together and combining different substitution programs is not
+convenient enough at least for me.
 
-## Configuration
+## Abstract
 
-As of right now there is no way to configure `pwease` but it might change in
-future!
+As of right now, `pwease` can:
 
-## Installation
+- substitute user (like `sudo` or `doas`);
+- substitute groups;
+- change root (binding /dev, /sys and /proc);
+- run command as a login shell.
 
-Note that second step requires running as root.
+More features are probably coming.
 
-```sh
-$ make
-# make install
-```
+## Defaults
+
+- Envrionment is kept. Use `--no-keep-env` to clear it.
+- `$HOME` is kept. Use `--home` to also substitute it.
