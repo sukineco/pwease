@@ -6,7 +6,7 @@ Command line utility for <insert thing name> substitution.
 
 There is a huge ton of different utilities for different kinds of substitution,
 and sometimes you even need to combine them. What if you want to just substitute
-groups for a new process (kepping the same user)? Or *properly* (with working
+groups for a new process (keeping the same user)? Or *properly* (with working
 /dev, /sys and /proc) chroot into somewhere? What if you also wanna login in
 chrooted environment? And so on. These seemingly unrelated problems in practice
 could arise together and combining different substitution programs is not
